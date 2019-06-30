@@ -30,6 +30,10 @@ class CountDown extends Component {
     this.setState({ days, hours, minutes, seconds });
   }
 
+  numberPadding(number) {
+    return number < 10 ? "0" + number : number;
+  }
+
   render() {
     const { backgroundPicture } = this.props;
     const { days, hours, minutes, seconds } = this.state;
@@ -42,22 +46,30 @@ class CountDown extends Component {
       >
         <Tilt className="wsize2 flex-w flex-c-m cd100 Tilt">
           <div className="flex-col-c-m size6 bor2 m-l-10 m-r-10 m-t-15">
-            <span className="l2-txt1 p-b-9 days">{days}</span>
+            <span className="l2-txt1 p-b-9 days">
+              {this.numberPadding(days)}
+            </span>
             <span className="s2-txt4">Days</span>
           </div>
 
           <div className="flex-col-c-m size6 bor2 m-l-10 m-r-10 m-t-15">
-            <span className="l2-txt1 p-b-9 hours">{hours}</span>
+            <span className="l2-txt1 p-b-9 hours">
+              {this.numberPadding(hours)}
+            </span>
             <span className="s2-txt4">Hours</span>
           </div>
 
           <div className="flex-col-c-m size6 bor2 m-l-10 m-r-10 m-t-15">
-            <span className="l2-txt1 p-b-9 minutes">{minutes}</span>
+            <span className="l2-txt1 p-b-9 minutes">
+              {this.numberPadding(minutes)}
+            </span>
             <span className="s2-txt4">Minutes</span>
           </div>
 
           <div className="flex-col-c-m size6 bor2 m-l-10 m-r-10 m-t-15">
-            <span className="l2-txt1 p-b-9 seconds">{seconds}</span>
+            <span className="l2-txt1 p-b-9 seconds">
+              {this.numberPadding(seconds)}
+            </span>
             <span className="s2-txt4">Seconds</span>
           </div>
         </Tilt>
